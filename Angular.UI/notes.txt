@@ -1,0 +1,11 @@
+3 routes 
+1] products => 
+    product list + delete
+  // add OR update OR view  
+2] ordering => 
+    products list
+    order 
+    customer
+3] reorder =>
+    customer orders history
+    reorder

@@ -1,0 +1,88 @@
+<div class="d-flex justify-content-between">
+  <div class="product-catalog scroll d-flex flex-wrap justify-content-between text-dark">
+    <div class="card border-warning mb-3 bg-light" *ngFor="let product of ProdSrv.products">
+      <div class="card-header border-warning bg-warning text-white font-weight-bold">
+        {{product.id.substring(0,13)}}
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">{{product.name}}</h5>
+        <p class="card-text">{{product.description}}</p>
+      </div>
+      <div class="card-footer border-warning">
+        <p>{{product.price | currency}}</p>
+        <div class="d-flex justify-content-between">
+          <input type="text"
+                  class="form-control"
+                  id="quantity"
+                  name="quantity"
+                  #quantity
+                  placeholder="quantity"
+                  value="1">
+          <button class="btn btn-outline-dark"
+                  (click)="addItem(product,+quantity.value)">
+              Add
+          </button>
+        </div>
+        <div class="alert alert-danger" *ngIf="errId == product.id">
+          too many quantity, maximum quantity is: {{product.quantity}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="order-items scroll">
+    <div class="card border-warning mb-3 bg-light">
+      <div class="card-header border-warning bg-warning text-white font-weight-bold">
+        Order Items:
+      </div>
+      <div class="card-body">
+        <h5 class="card-title text-muted" *ngIf="!orderItems.length">No Order Items</h5>
+        <table class="table" *ngIf="orderItems.length">
+          <thead>
+            <tr>
+              <th *ngFor="let col of cols">{{col}}</th>
+            </tr>
+          </thead>
+          <tbody class="text-dark">
+            <tr *ngFor="let item of orderItems">
+              <td>
+                {{item.name}}
+              </td>
+              <td>
+                {{item.price}}
+              </td>
+              <td>
+                {{item.quantity}}
+              </td>
+              <td>
+                {{item.subTotal}}
+              </td>
+              <td (click)="removeItem(item.id)">
+                <i class="fas fa-times"></i>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="alert alert-warning text-right" *ngIf="orderItems.length">
+          Total Price: {{this.total}}
+        </div>
+      </div>
+      <div class="card-footer border-warning">
+        <button class="btn btn-warning float-right"
+                [disabled]="!orderItems.length"
+                (click)="postOrder()">
+          Post Order
+        </button>
+        <div class="alert alert-info" *ngIf="notFound">
+          Must
+          <a routerLink="/signin">SignIn</a>
+          OR
+          <a routerLink="/signup">SignUp</a>
+          First
+        </div>
+      </div>
+    </div>
+    <div class="alert alert-info" *ngIf="orderSaved">
+      your order is saved successfully ...
+    </div>
+  </div>
+</div>

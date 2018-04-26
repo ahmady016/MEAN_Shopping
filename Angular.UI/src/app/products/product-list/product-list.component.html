@@ -1,0 +1,48 @@
+<div>
+  <a class="btn btn-outline-warning" routerLink="/products/add/0">
+    <i class="fas fa-plus"></i>
+    Add New Product
+  </a>
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th *ngFor="let col of cols">{{col}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of ProdSrv.products">
+        <td>
+          {{product.id}}
+        </td>
+        <td>
+          {{product.name}}
+        </td>
+        <td>
+          {{product.description}}
+        </td>
+        <td>
+          {{product.quantity}}
+        </td>
+        <td>
+          {{product.price}}
+        </td>
+        <td>
+          <button class="btn btn-link" (click)="ProdSrv.delete(product.id)">
+            <i class="fas fa-trash"></i>
+            Delete
+          </button>
+          |
+          <a class="btn btn-link" [routerLink]="['edit' , product.id]">
+            <i class="fas fa-edit"></i>
+            Edit
+          </a>
+          |
+          <a class="btn btn-link" [routerLink]="['view' , product.id]">
+            <i class="fas fa-desktop"></i>
+            View
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

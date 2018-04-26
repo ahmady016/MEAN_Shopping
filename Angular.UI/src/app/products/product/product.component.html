@@ -1,0 +1,63 @@
+<form class="w-75 mx-auto" [formGroup]="productForm">
+  <div class="form-group" >
+    <label for="productId">productId</label>
+    <input type="text" class="form-control"
+            id="productId"
+            formControlName="id">
+  </div>
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" class="form-control"
+            id="name"
+            placeholder="Enter Product Name"
+            formControlName="name">
+    <span *ngIf="name.invalid && name.touched">
+      <p *ngIf="name.errors.required">name Required</p>
+    </span>
+  </div>
+  <div class="form-group">
+    <label for="description">Description</label>
+    <input type="text" class="form-control"
+            id="description"
+            placeholder="Enter Product description"
+            formControlName="description">
+    <span *ngIf="description.invalid && description.touched">
+      <p *ngIf="description.errors.required">description Required</p>
+    </span>
+  </div>
+  <div class="form-group">
+    <label for="quantity">Quantity</label>
+    <input type="number" class="form-control"
+            id="quantity"
+            placeholder="Enter Product Quantity"
+            formControlName="quantity">
+    <span *ngIf="quantity.invalid && quantity.touched">
+      <p *ngIf="quantity.errors.required">quantity Required</p>
+    </span>
+  </div>
+  <div class="form-group">
+    <label for="price">Price</label>
+    <input type="number" class="form-control"
+            id="price"
+            placeholder="Enter Product Price"
+            formControlName="price">
+    <span *ngIf="price.invalid && price.touched">
+      <p *ngIf="price.errors.required">price Required</p>
+    </span>
+  </div>
+
+  <button class="btn btn-warning btn-lg"
+      [hidden]="viewType == 'view'"
+      (click)="save($event)">
+    Save
+  </button>
+  <button class="btn btn-warning btn-lg"
+      [hidden]="viewType !== 'view'"
+      (click)="delete()">
+    Delete
+  </button>
+  <button class="btn btn-default btn-lg"
+      (click)="cancel()">
+    Cancel
+  </button>
+</form>

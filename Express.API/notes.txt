@@ -1,0 +1,15 @@
+crud products
+list all product 
+post order => order + reorder
+order:
+  order object + customer object 
+  do:
+  write new customer
+  write new order + new customerId
+
+anotherOrder:
+  order object + customerId
+
+
+get orders/customerId:
+a381e3e0-3ffb-11e8-8565-3fd5d40fbbc1

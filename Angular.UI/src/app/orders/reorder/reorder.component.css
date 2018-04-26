@@ -1,0 +1,30 @@
+.orders,
+.reorder {
+  min-height: 100vh;
+}
+.orders {
+  flex-basis: 28%;
+  border-right: 1px solid #00000020;
+  border-left: 1px solid #00000020;
+}
+.reorder {
+  flex-basis: 68%;
+}
+.orders .card-body {
+  padding-left: 0;
+  padding-right: 0;
+}
+.orders .list-group-item {
+  /* background-color: #fff; */
+  /* border-color: #ffb835; */
+  cursor: pointer;
+  color: #444;
+  border-radius: 0%;
+  border-right: none;
+  border-left: none;
+}
+/* .orders .list-group-item.active {
+  background-color: #1b5288;
+  border-color: #123c65;
+  color:#fff;
+} */

@@ -1,0 +1,11 @@
+.card .alert.alert-info {
+  font-weight: bold;
+  color: #fff;
+}
+.btn-outline-warning:hover {
+  color:#444!important;
+}
+.fa-times {
+  cursor: pointer;
+  color: #bd0a0a;
+}

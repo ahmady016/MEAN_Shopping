@@ -1,0 +1,14 @@
+nav {
+  margin-bottom: 15px;
+}
+.nav-pills > .nav-item > a {
+  color: #f3f3f3;
+}
+.nav-pills > .nav-item > a:hover {
+  color: #fff;
+}
+.nav-pills > .nav-item > a.active, 
+.nav-pills > .nav-item > a.active:hover {
+  background-color: #f9f9f9;
+  color: #444;
+}

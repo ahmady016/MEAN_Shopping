@@ -1,0 +1,29 @@
+table {
+  margin: 0;
+  zoom: 0.75;
+}
+.product-catalog,
+.order-items {
+  height: 95vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0 5px;
+}
+.product-catalog {
+  flex-basis: 65%;
+}
+.order-items {
+  flex-basis: 34%;
+}
+.card {
+  flex-basis: 32%;
+}
+.alert.alert-danger,
+.alert.alert-info {
+  position: absolute;
+  z-index: 99;
+}
+.fa-times {
+  cursor: pointer;
+  color: #bd0a0a;
+}
